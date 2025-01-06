@@ -1,0 +1,21 @@
+services:
+  api-a-service:
+    build:
+      context: ./ApiA
+      dockerfile: Dockerfile
+    ports:
+      - "5001:8080"
+    networks:
+      - app-network
+  api-b-service:
+    build:
+      context: ./ApiB
+      dockerfile: Dockerfile
+    ports:
+      - "5002:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
